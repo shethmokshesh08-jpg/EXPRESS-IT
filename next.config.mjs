@@ -17,6 +17,26 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/games/patternmind",
+        destination: "/patternmind/",
+        permanent: false,
+      },
+      {
+        source: "/games/bollyverse",
+        destination: "/bollyverse/",
+        permanent: false,
+      },
+      {
+        source: "/games/chain-reaction",
+        destination: "/chainreaction/",
+        permanent: false,
+      },
+      {
+        source: "/games/rainbow-flow",
+        destination: "/rainbowflow/",
+        permanent: false,
+      },
+      {
         source: "/patternmind",
         destination: "/games/pattern-mind/index.html",
         permanent: false,
