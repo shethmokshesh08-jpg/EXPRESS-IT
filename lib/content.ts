@@ -260,18 +260,23 @@ export const parentHub = [
 
 export const roadmap = [
   {
-    year: "2025",
-    title: "Foundation",
-    detail: "Launch workshops, parent resources, and the first EXPRESS framework experiences.",
+    title: "More Guided Practice",
+    detail:
+      "Expanding Mind Gym with more reflection prompts, focus exercises, emotional-regulation activities, and confidence-building tools.",
   },
   {
-    year: "2026",
-    title: "Mind Gym",
-    detail: "Release the first guided practice tools for focus, emotional regulation, and self-awareness.",
+    title: "Parent Support Tools",
+    detail:
+      "Adding clearer parent resources, conversation guides, and simple ways for families to support expressive learning at home.",
   },
   {
-    year: "2028",
-    title: "School OS",
-    detail: "Scale educator dashboards, school programs, and guided family journeys.",
+    title: "School & Workshop Support",
+    detail:
+      "Building resources that can support workshops, classroom sessions, and school wellbeing programs in a structured way.",
+  },
+  {
+    title: "More Interactive Experiences",
+    detail:
+      "Continuing to improve games and activities that help learners practice thinking, communication, and self-expression.",
   },
 ];

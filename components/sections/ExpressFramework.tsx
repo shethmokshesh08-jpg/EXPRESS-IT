@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function ExpressFramework() {
+type ExpressFrameworkProps = {
+  standalone?: boolean;
+};
+
+export function ExpressFramework({ standalone = false }: ExpressFrameworkProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasEnteredRef = useRef(false);
@@ -118,19 +122,26 @@ export function ExpressFramework() {
       id="framework"
       ref={sectionRef}
       className={
-        isVideoRevealed
-          ? "framework-video-section framework-video-section--revealed"
-          : "framework-video-section"
+        [
+          "framework-video-section",
+          standalone ? "framework-video-section--standalone" : "",
+          isVideoRevealed ? "framework-video-section--revealed" : "",
+        ]
+          .filter(Boolean)
+          .join(" ")
       }
-      aria-labelledby="framework-title"
+      aria-labelledby={standalone ? undefined : "framework-title"}
+      aria-label={standalone ? "Five stage framework visual" : undefined}
     >
       <video
         ref={videoRef}
         className="framework-video-media hidden md:block"
         src="/videos/five-stage-world.mp4"
+        autoPlay={standalone}
+        loop={standalone}
         muted
         playsInline
-        preload="none"
+        preload={standalone ? "metadata" : "none"}
       />
       <video
         className="framework-video-media block md:hidden"
@@ -146,22 +157,24 @@ export function ExpressFramework() {
       <div className="framework-video-grade" aria-hidden="true" />
       <div className="framework-video-overlay" aria-hidden="true" />
 
-      <div className="framework-video-content">
-        <h2
-          id="framework-title"
-          className={
-            hasEntered
-              ? "framework-video-heading framework-video-heading--visible"
-              : "framework-video-heading"
-          }
-        >
-          A Five Stage World for Growth
-        </h2>
-        <p className="sr-only">
-          A cinematic framework reveal showing five connected growth stages for the Express It
-          learning experience.
-        </p>
-      </div>
+      {!standalone ? (
+        <div className="framework-video-content">
+          <h2
+            id="framework-title"
+            className={
+              hasEntered
+                ? "framework-video-heading framework-video-heading--visible"
+                : "framework-video-heading"
+            }
+          >
+            A Five Stage World for Growth
+          </h2>
+          <p className="sr-only">
+            A cinematic framework reveal showing five connected growth stages for the Express It
+            learning experience.
+          </p>
+        </div>
+      ) : null}
     </section>
   );
 }
