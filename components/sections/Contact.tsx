@@ -11,6 +11,9 @@ const contactLinks = [
   { label: "Email", href: "mailto:expressit.myra@gmail.com", icon: Mail, external: true },
 ];
 
+const publicPhoneDisplay = "+91 98114 27000";
+const publicPhoneHref = "tel:+919811427000";
+
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
@@ -66,7 +69,12 @@ export function Contact() {
               </div>
               <div className="glass-panel flex items-center gap-4 rounded-3xl p-4">
                 <Phone className="h-6 w-6 text-secondary" aria-hidden="true" />
-                <span className="font-bold text-slate-700">+91 00000 00000</span>
+                <a
+                  href={publicPhoneHref}
+                  className="font-bold text-slate-700 transition-colors duration-200 hover:text-primary"
+                >
+                  {publicPhoneDisplay}
+                </a>
               </div>
               <div className="glass-panel flex items-center gap-4 rounded-3xl p-4">
                 <MapPin className="h-6 w-6 text-accent" aria-hidden="true" />
